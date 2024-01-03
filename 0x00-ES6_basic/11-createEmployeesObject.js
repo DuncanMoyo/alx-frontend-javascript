@@ -1,5 +1,5 @@
 const createEmployeesObject = (departmentName, employees) => {
-  let obj = {};
+  const obj = {};
   obj[departmentName] = employees;
   return obj;
 };

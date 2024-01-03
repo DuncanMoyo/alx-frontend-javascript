@@ -1,16 +1,19 @@
 const createIteratorObject = (report) => {
   let employees = [];
-  for (let department in report.allEmployees) {
-    employees = employees.concat(report.allEmployees[department]);
+  for (const department in report.allEmployees) {
+    if (Object.prototype.hasOwnProperty.call(report.allEmployees, department)) {
+      employees = employees.concat(report.allEmployees[department]);
+    }
   }
   let index = 0;
   return {
-    next: function () {
+    next() {
       if (index < employees.length) {
-        return { value: employees[index++], done: false };
-      } else {
-        return { done: true };
+        const value = employees[index];
+        index += 1;
+        return { value, done: false };
       }
+      return { done: true };
     },
   };
 };
