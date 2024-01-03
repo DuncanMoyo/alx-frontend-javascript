@@ -1,10 +1,10 @@
-// 0-promise.js
-const getResponseFromAPI = () => {
+export default function getResponseFromAPI() {
+  const success = true;
   return new Promise((resolve, reject) => {
-      // API call logic here
-      // If successful, call resolve()
-      // If error occurs, call reject()
+    if (success) {
+      resolve();
+    } else {
+      reject();
+    }
   });
-};
-
-export default getResponseFromAPI;
+}

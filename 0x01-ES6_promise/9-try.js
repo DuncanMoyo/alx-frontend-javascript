@@ -6,7 +6,7 @@ const guardrail = (mathFunction) => {
   } catch (error) {
     queue.push(error.message);
   }
-  queue.push("Guardrail was processed");
+  queue.push('Guardrail was processed');
   return queue;
 };
 

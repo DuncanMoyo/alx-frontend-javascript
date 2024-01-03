@@ -1,4 +1,4 @@
-import { uploadPhoto, createUser } from "./utils.js";
+import { uploadPhoto, createUser } from './utils';
 
 async function asyncUploadUser() {
   try {
