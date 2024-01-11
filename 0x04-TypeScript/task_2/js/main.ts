@@ -48,3 +48,35 @@ const createEmployee: (salary: number | string) => Director | Teacher = (
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
 console.log(createEmployee("$500"));
+
+const isDirector = (employee: Director | Teacher): employee is Director => {
+  return (employee as Director).workDirectorTasks !== undefined;
+};
+
+const executeWork = (employee: Director | Teacher): string => {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return employee.workTeacherTasks();
+  }
+};
+
+// Test the functions
+console.log(executeWork(createEmployee(200)));
+console.log(executeWork(createEmployee(1000)));
+
+type Subjects = "Math" | "History";
+
+const teachClass: (todayClass: Subjects) => string = (todayClass) => {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  } else {
+    if (todayClass === "History") {
+      return "Teaching History";
+    }
+  }
+};
+
+// Test the function
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
